@@ -5,6 +5,7 @@ metadata:
   labels:
     {{- include "pass-gen.labels" . | nindent 4 }}
 spec:
+  {{- if .Values.metricsServer.enabled }}
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
@@ -50,17 +51,16 @@ spec:
           volumeMounts:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-
       {{- if .Values.metricsServer.enabled }}
-      - name: metrics-server
-        image: "{{ .Values.metricsServer.image.repository }}:{{ .Values.metricsServer.image.tag }}"
-        imagePullPolicy: {{ .Values.metricsServer.image.pullPolicy }}
-        ports:
-          - name: http
-            containerPort: 443
-            protocol: TCP
-        resources:
-          {{- toYaml .Values.metricsServer.resources | nindent 12 }}
+        - name: metrics-server
+          image: "{{ .Values.metricsServer.image.repository }}:{{ .Values.metricsServer.image.tag }}"
+          imagePullPolicy: {{ .Values.metricsServer.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 443
+              protocol: TCP
+          resources:
+            {{- toYaml .Values.metricsServer.resources | nindent 12 }}
       {{- end }}
 
       {{- with .Values.volumes }}
