@@ -89,8 +89,8 @@ autoscaling:
   enabled: true
   minReplicas: 1
   maxReplicas: 10
-  targetCPUUtilizationPercentage: "80%" # Ajusta este valor según tus necesidades
-  targetMemoryUtilizationPercentage: "80%" # Ajusta este valor según tus necesidades
+  targetCPUUtilizationPercentage: "80" # Elimina el signo de porcentaje
+  targetMemoryUtilizationPercentage: "80" # Elimina el signo de porcentaje
   cpuMetricName: cpu_usage_seconds_total
   memoryMetricName: memory_usage_bytes
 
