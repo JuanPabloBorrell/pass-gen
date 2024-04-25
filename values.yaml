@@ -112,7 +112,7 @@ tolerations: []
 affinity: {}
 
 metricsServer:
-  enabled: true
+  enabled: false
   replicaCount: 1
   image:
     repository: k8s.gcr.io/metrics-server/metrics-server
