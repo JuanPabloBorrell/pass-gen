@@ -16,9 +16,13 @@ spec:
     - type: External
       external:
         metricName: cpu_usage_seconds_total
-        targetAverageValue: "500m" # Reemplaza este valor con tu objetivo de uso de CPU
+        target:
+          type: Utilization
+          averageValue: "500m" # Reemplaza este valor con tu objetivo de uso de CPU
     - type: External
       external:
         metricName: memory_usage_bytes
-        targetAverageValue: "100Mi" # Reemplaza este valor con tu objetivo de uso de memoria
+        target:
+          type: Utilization
+          averageValue: "100Mi" # Reemplaza este valor con tu objetivo de uso de memoria
 {{- end }}
