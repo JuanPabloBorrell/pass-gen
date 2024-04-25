@@ -72,9 +72,9 @@ resources:
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
-requests:
-  cpu: 8m
-  memory: 64Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
 
 livenessProbe:
   httpGet:
@@ -87,9 +87,9 @@ readinessProbe:
 
 autoscaling:
   enabled: true
-  minReplicas: 2
-  maxReplicas: 4
-  targetCPUUtilizationPercentage: 100
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
 # Additional volumes on the output Deployment definition.
@@ -110,6 +110,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-prometheus:
-  enabled: false
