@@ -15,14 +15,14 @@ spec:
   metrics:
     - type: External
       external:
-        metricName: cpu_usage_seconds_total
+        metricName: {{ .Values.autoscaling.cpuMetricName }}
         target:
           type: Utilization
-          averageValue: "500m" # Reemplaza este valor con tu objetivo de uso de CPU
+          averageValue: {{ .Values.autoscaling.targetCPUUtilizationPercentage }}%
     - type: External
       external:
-        metricName: memory_usage_bytes
+        metricName: {{ .Values.autoscaling.memoryMetricName }}
         target:
           type: Utilization
-          averageValue: "100Mi" # Reemplaza este valor con tu objetivo de uso de memoria
+          averageValue: {{ .Values.autoscaling.targetMemoryUtilizationPercentage }}%
 {{- end }}

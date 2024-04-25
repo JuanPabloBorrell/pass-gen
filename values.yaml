@@ -91,6 +91,8 @@ autoscaling:
   maxReplicas: 10
   targetCPUUtilizationPercentage: 80
   targetMemoryUtilizationPercentage: 80
+  cpuMetricName: cpu_usage_seconds_total
+  memoryMetricName: memory_usage_bytes
 
 # Additional volumes on the output Deployment definition.
 volumes: []
