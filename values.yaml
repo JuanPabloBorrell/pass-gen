@@ -110,3 +110,13 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+metricsServer:
+  enabled: true
+  # Puedes ajustar estos valores según sea necesario
+  replicaCount: 1
+  image:
+    repository: k8s.gcr.io/metrics-server/metrics-server
+    tag: v0.5.0
+    pullPolicy: IfNotPresent
+  resources: {}

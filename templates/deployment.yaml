@@ -5,6 +5,13 @@ metadata:
   labels:
     {{- include "pass-gen.labels" . | nindent 4 }}
 spec:
+  {{- if .Values.metricsServer.enabled }}
+  containers:
+    - name: metrics-server
+      image: {{ .Values.metricsServer.image.repository }}:{{ .Values.metricsServer.image.tag }}
+      imagePullPolicy: {{ .Values.metricsServer.image.pullPolicy }}
+      resources: {{ toYaml .Values.metricsServer.resources | nindent 12 }}
+  {{- end }}
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
