@@ -13,20 +13,12 @@ spec:
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
-    {{- if .Values.autoscaling.targetCPUUtilizationPercentage }}
     - type: External
       external:
-        name: cpu
-        target:
-          type: Utilization
-          averageUtilization: {{ .Values.autoscaling.targetCPUUtilizationPercentage }}
-    {{- end }}
-    {{- if .Values.autoscaling.targetMemoryUtilizationPercentage }}
+        metricName: cpu_usage_seconds_total
+        targetAverageValue: "500m" # Reemplaza este valor con tu objetivo de uso de CPU
     - type: External
       external:
-        name: memory
-        target:
-          type: Utilization
-          averageUtilization: {{ .Values.autoscaling.targetMemoryUtilizationPercentage }}
-    {{- end }}
+        metricName: memory_usage_bytes
+        targetAverageValue: "100Mi" # Reemplaza este valor con tu objetivo de uso de memoria
 {{- end }}
