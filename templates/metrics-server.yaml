@@ -22,6 +22,11 @@ spec:
         image: {{ .Values.metricsServer.image.repository }}:{{ .Values.metricsServer.image.tag }}
         imagePullPolicy: {{ .Values.metricsServer.image.pullPolicy }}
         resources: {{ toYaml .Values.metricsServer.resources | nindent 12 }}
+      {{- if .Values.metricsServer.certificatesDir }}
+      volumeMounts:
+        - name: certs-volume
+          mountPath: {{ .Values.metricsServer.certificatesDir }}
+      {{- end }}
 ---
 apiVersion: v1
 kind: Service
