@@ -110,13 +110,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-metricsServer:
-  enabled: false
-  replicaCount: 1
-  image:
-    repository: k8s.gcr.io/metrics-server/metrics-server
-    tag: v0.5.0
-    pullPolicy: IfNotPresent
-  resources: {}
-  certificatesDir: "/etc/metrics-server/certs"
