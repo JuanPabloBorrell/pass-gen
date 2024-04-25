@@ -72,9 +72,9 @@ resources:
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+requests:
+  cpu: 8m
+  memory: 64Mi
 
 livenessProbe:
   httpGet:
@@ -112,4 +112,4 @@ tolerations: []
 affinity: {}
 
 prometheus:
-  enabled: true
+  enabled: false
