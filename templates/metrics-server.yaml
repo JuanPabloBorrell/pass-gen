@@ -1,5 +1,16 @@
 # metrics-server.yaml
-
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: metrics-server-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /etc/metrics-server/certs
+---
 {{- if .Values.metricsServer.enabled }}
 apiVersion: apps/v1
 kind: Deployment
