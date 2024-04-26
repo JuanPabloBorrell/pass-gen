@@ -68,11 +68,11 @@ requests:
 livenessProbe:
   httpGet:
     path: /
-    port: http
+    port: 5000
 readinessProbe:
   httpGet:
     path: /
-    port: http
+    port: 5000
 autoscaling:
   enabled: true
   minReplicas: 1
