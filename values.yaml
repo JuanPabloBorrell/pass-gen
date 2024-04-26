@@ -38,7 +38,7 @@ service:
   port: 5000
   nodePort: 5001
 ingress:
-  enabled: false
+  enabled: true
   className: ""
   annotations:
     {}
