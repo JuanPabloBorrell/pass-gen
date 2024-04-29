@@ -97,3 +97,9 @@ affinity: {}
 
 prometheus:
   enabled: false
+
+containers:
+  - name: pass-gen
+    resources:
+      requests:
+        cpu: "100m"
