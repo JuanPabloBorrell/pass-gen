@@ -63,8 +63,8 @@ resources:
 #  cpu: 100m
 #  memory: 128Mi
 requests:
-  cpu: 100m
-  memory: 128Mi
+  cpu: 50m
+  memory: 64Mi
 livenessProbe:
   httpGet:
     path: /
@@ -97,9 +97,8 @@ affinity: {}
 
 prometheus:
   enabled: false
-
-containers:
-  - name: pass-gen
-    resources:
-      requests:
-        cpu: "100m"
+#containers:
+#  - name: pass-gen
+#    resources:
+#      requests:
+#        cpu: "100m"
