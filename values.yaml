@@ -34,7 +34,7 @@ securityContext:
   # runAsNonRoot: true
   # runAsUser: 1000
 service:
-  type: NodePort
+  type: LoadBalancer
   port: 5000
   nodePort: 5001
 ingress:
